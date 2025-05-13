@@ -34,4 +34,51 @@ or
 run this command in the command line:
 ```
 mvn spring-boot:run
-```
+*****************************************************************************************************
+
+## Docker Image Build and Push to DockerHub 
+
+docker build -t mamtagour1999/springboot-crud-demo:v1 .
+![image](https://github.com/user-attachments/assets/7b60ba3f-649b-4c81-a981-1aee5d1e4919)
+****************************************************************************************************
+## Kubernetes Deployment
+****springboot-deployment.yml****
+-------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-app
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      containers:
+        - name: springboot-container
+          image: msjabb1015/spring-boot-web:v1   # ✅ your Docker Hub image
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-service
+spec:
+  type: LoadBalancer   # Docker Desktop will handle it like NodePort internally
+  selector:
+    app: springboot-app
+  ports:
+    - port: 80
+      targetPort: 8080
+-----------------------------------------------------------------------------------
+kubectl apply -f springboot-deployment.yml
+
+![image](https://github.com/user-attachments/assets/2c42a882-4e93-4c9c-9f18-b4f06b5acdd6)
+![image](https://github.com/user-attachments/assets/28f4c7ce-99bb-4e00-9dc5-8f281920c4b2)
+
+*************************************************************************************************************
