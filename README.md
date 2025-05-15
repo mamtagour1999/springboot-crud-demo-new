@@ -83,6 +83,7 @@ kubectl apply -f springboot-deployment.yml
 ![image](https://github.com/user-attachments/assets/48144e45-9d0b-463d-a1f2-44be513bc703)
 ![image](https://github.com/user-attachments/assets/43ff9643-4875-47b2-8142-ca907a1780ec)
 ![image](https://github.com/user-attachments/assets/9407542a-099e-4018-9ab4-1883e68fea59)
+![image](https://github.com/user-attachments/assets/ffc41c13-d7a5-4d28-a1b2-7b1fc1e3f3e4)
 
 
 *************************************************************************************************************
